@@ -7,10 +7,12 @@ import java.util.Queue;
 public class ServerQueue {
     public int priority;
     public String request;
+    public String name;
 
-    public ServerQueue(int priority, String request) {
+    public ServerQueue(int priority, String request, String name) {
         this.priority = priority;
         this.request = request;
+        this.name = name;
     }
 
     @Override
@@ -18,6 +20,7 @@ public class ServerQueue {
         return "ServerQueue{" +
                 "priority=" + priority +
                 ", request='" + request + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 
@@ -29,10 +32,10 @@ public class ServerQueue {
             }
         });
 
-        sq.offer(new ServerQueue(4, "Req1"));
-        sq.offer(new ServerQueue(2, "Req2"));
-        sq.offer(new ServerQueue(5, "Req3"));
-        sq.offer(new ServerQueue(1, "Req4"));
+        sq.offer(new ServerQueue(4, "Req1", "Ivan"));
+        sq.offer(new ServerQueue(2, "Req2", "Peter"));
+        sq.offer(new ServerQueue(5, "Req3", "Andrew"));
+        sq.offer(new ServerQueue(1, "Req4", "Serj"));
 
         int size = sq.size();
         for (int i = 0; i < size; i++) {
