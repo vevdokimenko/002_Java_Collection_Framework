@@ -1,0 +1,10 @@
+*/.idea/
+/out/
+*/out/
+*.pdf
+*.iml
+*.txt
+*.png
+*.docx
+/.idea/
+/src/com/itvdn/javaProfessional/
