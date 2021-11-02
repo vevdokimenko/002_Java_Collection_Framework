@@ -3,7 +3,7 @@ package practice.task2;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws User.NoSuchUserException {
+    public static void main(String[] args) {
         UserService userService = new UserService();
         Scanner sc = new Scanner(System.in);
 
@@ -26,7 +26,11 @@ public class Main {
                     break;
                 case "2" :
                     login = getStrFromConsole("Enter login:");
-                    userService.userDelete(login);
+                    try {
+                        userService.userDelete(login);
+                    } catch (User.NoSuchUserException e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case "3" :
                     login = getStrFromConsole("Enter login:");
@@ -35,12 +39,20 @@ public class Main {
                 case "4" :
                     login = getStrFromConsole("Enter login:");
                     String newLogin = getStrFromConsole("Enter new login:");
-                    userService.changeUserLogin(login, newLogin);
+                    try {
+                        userService.changeUserLogin(login, newLogin);
+                    } catch (User.NoSuchUserException e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case "5" :
                     login = getStrFromConsole("Enter login:");
                     String newPass = getStrFromConsole("Enter new pass:");
-                    userService.changeUserPassword(login, newPass);
+                    try {
+                        userService.changeUserPassword(login, newPass);
+                    } catch (User.NoSuchUserException e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 default:
                     System.out.println("Exit program");
