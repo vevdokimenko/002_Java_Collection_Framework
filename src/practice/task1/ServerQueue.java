@@ -1,4 +1,4 @@
-package practice;
+package practice.task1;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
