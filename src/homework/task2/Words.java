@@ -29,7 +29,7 @@ public class Words {
 
     public static void main(String[] args) {
         List<String> words = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             words.add(new Scanner(System.in).nextLine());
         }
 
