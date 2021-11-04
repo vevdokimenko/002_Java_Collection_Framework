@@ -16,7 +16,12 @@ public class Words {
     public List<String> doubleValues(List<String> words) {
         List<String> newList = new ArrayList<>();
         for (String word : words) {
-            newList.add(word);
+            char[] letters = word.toCharArray();
+            word = "";
+            for (char letter : letters) {
+                word += letter;
+                word += letter;
+            }
             newList.add(word);
         }
         return newList;
@@ -24,7 +29,7 @@ public class Words {
 
     public static void main(String[] args) {
         List<String> words = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             words.add(new Scanner(System.in).nextLine());
         }
 
