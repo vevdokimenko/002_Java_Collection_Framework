@@ -24,10 +24,4 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
-
-    static class NoSuchUserException extends Exception {
-        public NoSuchUserException() {
-            super("No such user.");
-        }
-    }
 }

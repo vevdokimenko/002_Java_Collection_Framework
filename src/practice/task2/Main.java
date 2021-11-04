@@ -19,40 +19,28 @@ public class Main {
             String login;
 
             switch (choice) {
-                case "1" :
+                case "1":
                     login = getStrFromConsole("Enter login:");
                     String password = getStrFromConsole("Enter password:");
                     userService.userAdd(login, password);
                     break;
-                case "2" :
+                case "2":
                     login = getStrFromConsole("Enter login:");
-                    try {
-                        userService.userDelete(login);
-                    } catch (User.NoSuchUserException e) {
-                        System.err.println(e.getMessage());
-                    }
+                    userService.userDelete(login);
                     break;
-                case "3" :
+                case "3":
                     login = getStrFromConsole("Enter login:");
                     System.out.println(userService.isUserPresence(login));
                     break;
-                case "4" :
+                case "4":
                     login = getStrFromConsole("Enter login:");
                     String newLogin = getStrFromConsole("Enter new login:");
-                    try {
-                        userService.changeUserLogin(login, newLogin);
-                    } catch (User.NoSuchUserException e) {
-                        System.err.println(e.getMessage());
-                    }
+                    userService.changeUserLogin(login, newLogin);
                     break;
-                case "5" :
+                case "5":
                     login = getStrFromConsole("Enter login:");
                     String newPass = getStrFromConsole("Enter new pass:");
-                    try {
-                        userService.changeUserPassword(login, newPass);
-                    } catch (User.NoSuchUserException e) {
-                        System.err.println(e.getMessage());
-                    }
+                    userService.changeUserPassword(login, newPass);
                     break;
                 default:
                     System.out.println("Exit program");

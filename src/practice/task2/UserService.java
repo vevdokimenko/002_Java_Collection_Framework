@@ -16,12 +16,12 @@ public class UserService {
         users.add(new User(login, password));
     }
 
-    public void userDelete(String login) throws User.NoSuchUserException {
+    public void userDelete(String login) {
         User user = getUserByLogin(login);
         if (user != null)
             users.remove(user);
         else
-            throw new User.NoSuchUserException();
+            System.err.println("No such user");
     }
 
     public boolean isUserPresence(String login) {
@@ -31,7 +31,7 @@ public class UserService {
         return false;
     }
 
-    public void changeUserLogin(String login, String newLogin) throws User.NoSuchUserException {
+    public void changeUserLogin(String login, String newLogin) {
         User user = getUserByLogin(login);
         if (user != null)
             users.set(
@@ -39,10 +39,10 @@ public class UserService {
                     new User(newLogin, user.getPassword())
             );
         else
-            throw new User.NoSuchUserException();
+            System.err.println("No such user!");
     }
 
-    public void changeUserPassword(String login, String newPass) throws User.NoSuchUserException {
+    public void changeUserPassword(String login, String newPass) {
         User user = getUserByLogin(login);
         if (user != null)
             users.set(
@@ -50,10 +50,10 @@ public class UserService {
                     new User(user.getLogin(), newPass)
             );
         else
-            throw new User.NoSuchUserException();
+            System.err.println("No such user!");
     }
 
-    private User getUserByLogin (String login) {
+    private User getUserByLogin(String login) {
         for (User user : users) {
             if (user.getLogin().equals(login)) return user;
         }
